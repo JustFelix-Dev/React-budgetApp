@@ -41,10 +41,36 @@ export const addExpense=({name,amount,budgetId})=>{
     return localStorage.setItem('expenses',JSON.stringify([...existingExpenses,newExpense]))
 }
 
+// Calculate spent
+export const calculateSpent=(budgetId)=>{
+   const expenses = fetchData("expenses") ?? []
+   const budgetSpent = expenses.reduce((acc,expense)=>{
+    //   check if expense.budgetId === budgetId
+           if(expense.budgetId !== budgetId) return acc
+
+    // add the amount to my total
+      return acc += expense.amount
+   },0)
+   return budgetSpent;
+}
+
+// formatting ProgressBar
+export const formatProgressBar=(amount)=>{
+    return amount.toLocaleString(undefined,{
+        style : "percent",
+        minimumFractionDigits: 0 
+    })
+}
+
 // formatting Currency
 export const formatCurrency = (amount)=>{
     return amount.toLocaleString(undefined,{
         style : "currency",
         currency : "USD"
     })
+}
+
+// formatting Date
+export const formatDate =(epoch)=>{
+    return new Date(epoch).toLocaleDateString()
 }
