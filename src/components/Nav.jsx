@@ -30,6 +30,13 @@ export const logoutAction = ()=>{
          deleteData({
             key:"userName"
          })
+         deleteData({
+            key:"budgets"
+         })
+         deleteData({
+            key:"expenses"
+         })
+
         //  toast.promise({pending,error,sucess})
          toast.success('You have deleted this user!')
 

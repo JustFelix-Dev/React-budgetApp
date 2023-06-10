@@ -1,5 +1,5 @@
 // intentional delay upon form submission
-  export const waait =()=> new Promise(res =>( setTimeout(res,Math.random() * 4000)))
+  export const waait =()=> new Promise(res =>( setTimeout(res,Math.random() * 2000)))
 
 // local Storage
 // fetch Data
@@ -11,10 +11,13 @@ export const fetchData=(key)=>{
 export const deleteData=({key})=>{
     return localStorage.removeItem(key)
 }
+
+// generating random colors for the budget
 const generateColors = ()=>{
     const existingBudgetsLength = fetchData('budgets')?.length ?? 0 
     return `${existingBudgetsLength * 34} 65% 50%`
 }
+
 // creating budget 
 export const createBudget=({name,amount})=>{
     const newBudget = {
@@ -39,6 +42,21 @@ export const addExpense=({name,amount,budgetId})=>{
     }
     const existingExpenses = fetchData('expenses') ?? []
     return localStorage.setItem('expenses',JSON.stringify([...existingExpenses,newExpense]))
+}
+
+// getMatchingItems
+export const getMatchingItems=({category,key,value})=>{
+      const data = fetchData(category) ?? []
+      return data.filter((eachBudget)=> eachBudget[key] == value)
+}
+
+// delete expense Item
+export const deleteItem=({key,id})=>{
+    const existingData = fetchData(key);
+    if(id){
+        const newData = existingData.filter((eachBudget)=>eachBudget.id !== id )
+        return localStorage.setItem(key,JSON.stringify(newData))
+    }
 }
 
 // Calculate spent

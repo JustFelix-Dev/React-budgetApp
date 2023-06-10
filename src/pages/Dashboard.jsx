@@ -1,5 +1,5 @@
-import { useLoaderData } from "react-router-dom";
-import { addExpense, createBudget, fetchData, waait } from "../helpers";
+import { Link, useLoaderData } from "react-router-dom";
+import { addExpense, createBudget, deleteItem, fetchData, waait } from "../helpers";
 import Intro from "../components/Intro";
 import { toast } from 'react-toastify';
 import AddBudgetForm from "../components/AddBudgetForm";
@@ -49,6 +49,15 @@ export const formAction = async ({request})=>{
            throw Error('There was a problem creating a new Expense!')
         }
     }
+    if(_action === 'deleteExpense'){
+        try{
+            deleteItem({key:"expenses", id:formData.expenseId})
+              return toast.success(`Expense deleted!`)
+        }
+        catch(error){
+           throw Error('There was a problem deleting your Expense!')
+        }
+    }
 }
 
 export const dashboardLoader=()=>{
@@ -84,9 +93,14 @@ const Dashboard = () => {
                              expenses && expenses.length > 0 && (
                                 <div className="grid-md">
                                     <h2>Recent Expenses</h2>
-                                    <Table expenses={expenses.sort((a,b)=>b.createdAt - a.createdAt)}/>
+                                    <Table expenses={expenses.sort((a,b)=>b.createdAt - a.createdAt).slice(0,6)}/>
+                                    { expenses.length > 5 && (
+                                        <Link to={'expenses'} className="btn btn--dark">
+                                            See All Expenses
+                                        </Link>
+                                                    ) }
                                 </div>
-                             )
+                                )
                           }
                     </div>
                       : (

@@ -13,17 +13,18 @@ import Main, { mainLoader } from './layouts/Main';
 import { logoutAction } from './components/Nav';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ExpensePage, { expenseAction, expensesLoader } from './pages/ExpensePage';
 
 const router = createBrowserRouter(
       createRoutesFromElements(
-    <Route path='/' element={<Main/>} loader={mainLoader} >
+     <Route path='/' element={<Main/>} loader={mainLoader} errorElement={<Error/>} >
      <Route index element={<Dashboard/>} 
      loader={dashboardLoader} 
      action={formAction}
      errorElement={<Error/>}
      />
-     <Route path='logout' action={logoutAction} errorElement={<Error/>}/>
-
+     <Route path='logout' action={logoutAction} />
+     <Route path='expenses' element={<ExpensePage/>} loader={expensesLoader} action={expenseAction} errorElement={<Error/>} />
         </Route>
       )
 )
