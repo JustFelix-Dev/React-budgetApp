@@ -1,7 +1,36 @@
 import React from 'react'
-import { calculateSpent, formatCurrency, formatProgressBar } from '../helpers'
+import { calculateSpent, deleteItem, formatCurrency, formatProgressBar, getMatchingItems } from '../helpers'
+import { Form,Link, redirect } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-const BudgetItem = ({budget}) => {
+// deleteBudgetAction
+export const deleteBudgetAction =({params})=>{
+    try{
+       deleteItem({
+        key: "budgets",
+        id: params.id
+       })
+
+       const associatedExpenses = getMatchingItems({
+        category : "expenses",
+        key: "budgetId",
+        value: params.id
+       })
+
+       associatedExpenses.forEach((expense)=>{
+          deleteItem({
+            key : "expenses",
+            id : expense.id
+          })
+       })
+       toast.success("Budget Deleted!")
+       return redirect('/')
+    }
+    catch(error){
+        throw Error("There was a problem deleting this Budget!")
+    }
+}
+const BudgetItem = ({budget,showButton=false}) => {
     const { id,name,amount,color} = budget
     const spent = calculateSpent(id)
   return (
@@ -18,6 +47,19 @@ const BudgetItem = ({budget}) => {
                 <small>{formatCurrency(spent)} spent</small>
                 <small>{formatCurrency(amount - spent)} remaining</small>
              </div>
+                 {
+                    showButton ? (
+                        <Form method='post' action='delete' onSubmit={(e)=>{
+                            if(!confirm("Are you sure you want to remove budget?")){e.preventDefault()}
+                            }}>
+                            <button type='submit' className='btn'>Delete Budget</button>
+                        </Form>
+                    ) : (
+                        <Link to={`/budgets/${id}`} className='btn' >
+                            <span>View Budget</span>
+                        </Link>
+                    )
+                 }
         </div>
        </>
   )

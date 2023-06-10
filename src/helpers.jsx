@@ -15,7 +15,7 @@ export const deleteData=({key})=>{
 // generating random colors for the budget
 const generateColors = ()=>{
     const existingBudgetsLength = fetchData('budgets')?.length ?? 0 
-    return `${existingBudgetsLength * 34} 65% 50%`
+    return `${existingBudgetsLength * 50} 75% 50%`
 }
 
 // creating budget 
