@@ -72,7 +72,7 @@ const Dashboard = () => {
     return ( 
             <>
              { userName ? <div className="dashboard">
-                <h1>Welcome back,<span className="accent">{userName}</span></h1>
+                <div style={{display:"flex",alignItems:"center"}}><h2>Welcome,</h2><span className="userName">{userName}</span></div> 
                 <div className="grid-sm">
                     {   
                       budgets && budgets.length > 0 ? 
@@ -81,7 +81,7 @@ const Dashboard = () => {
                             <AddBudgetForm/>
                             <AddExpenseForm budgets={budgets}/>
                         </div>
-                        <h2>Existing Budgets</h2>
+                        <h2>Available Budgets</h2>
                           <div className="budgets">
                             {
                                 budgets.map((budget)=>(
@@ -105,7 +105,7 @@ const Dashboard = () => {
                     </div>
                       : (
                         <div className="grid-sm">
-                            <p>Personal Budgeting is the secret to financial freedom.</p>
+                            <p>Manage your finances anywhere, anytime with ease.</p>
                             <p>Create a budget to get started!</p>
                             <AddBudgetForm/>
                         </div>

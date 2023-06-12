@@ -1,6 +1,7 @@
 import React from 'react'
 import { formatCurrency, formatDate, getMatchingItems } from '../helpers'
 import { Link, useFetcher } from 'react-router-dom';
+import {GrTrash} from 'react-icons/gr';
 
 const ExpenseItem = ({expense,showBudget}) => {
     const fetcher = useFetcher()
@@ -19,7 +20,7 @@ const ExpenseItem = ({expense,showBudget}) => {
         <fetcher.Form method='post'>
                <input type="hidden" name='_action' value={'deleteExpense'} />
                <input type='hidden' name='expenseId' value={expense.id}/>
-               <button type='submit' className='btn btn--warning'>Delete</button>
+               <button  type='submit' className='btn btn--warning'><GrTrash/></button>
         </fetcher.Form>
 
        </td>

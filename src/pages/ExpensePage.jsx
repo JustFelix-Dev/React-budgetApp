@@ -33,7 +33,7 @@ const ExpensePage = () => {
             {
              expenses && expenses.length > 0 ?
              <div className="grid-md">
-                <h2>Recent Expenses <small>{expenses.length} expenses</small></h2>
+                <h2>Recent Expenses <small className="expenseList">{expenses.length} expenses</small></h2>
                 <Table expenses={expenses}/>
                 
              </div> : <p>No Expenses Found</p>

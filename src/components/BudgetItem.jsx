@@ -45,7 +45,7 @@ const BudgetItem = ({budget,showButton=false}) => {
              </progress>
              <div className="progress-text">
                 <small>{formatCurrency(spent)} spent</small>
-                <small>{formatCurrency(amount - spent)} remaining</small>
+                <small>{formatCurrency(amount - spent)} available</small>
              </div>
                  {
                     showButton ? (

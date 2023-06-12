@@ -1,6 +1,6 @@
 import React, { useRef,useEffect } from 'react'
 import { useFetcher } from 'react-router-dom'
-
+import {AiOutlinePlus} from 'react-icons/ai'
 const AddExpenseForm = ({ budgets }) => {
     const fetcher = useFetcher()
     const isSubmitting = fetcher.state == 'submitting'
@@ -39,10 +39,25 @@ const AddExpenseForm = ({ budgets }) => {
                             }
                         </select>
                     </div>
-                    <input type="hidden" name="_action" value={'addExpense'} />
-                    <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
+                    <input type="hidden" name="_action" value={'addExpense'} /> 
+                    <button  style={{alignSelf:"end",display:"flex",justifyContent:"center",alignItems:"center"}} type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
-                        isSubmitting ? (<span>Submitting...</span>): (<span>Add Expense</span>)
+                        isSubmitting ? (
+                            <div class="loader">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                                <div class="bar4"></div>
+                                <div class="bar5"></div>
+                                <div class="bar6"></div>
+                                <div class="bar7"></div>
+                                <div class="bar8"></div>
+                                <div class="bar9"></div>
+                                <div class="bar10"></div>
+                                <div class="bar11"></div>
+                                <div class="bar12"></div>
+                            </div>
+                        ): (<span style={{display:"flex"}}><AiOutlinePlus height={30}/></span>)
                     }
                  </button>
                 </div>
