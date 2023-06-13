@@ -1,5 +1,5 @@
 // intentional delay upon form submission
-  export const waait =()=> new Promise(res =>( setTimeout(res,Math.random() * 2000)))
+  export const waait =()=> new Promise(res =>( setTimeout(res,Math.random() * 3000)))
 
 // local Storage
 // fetch Data

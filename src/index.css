@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Mukta', sans-serif;
 }
 
 img {
@@ -30,7 +31,7 @@ svg {
   --text: 185 26% 9%;
   --muted: 183 8% 55%;
   --light: 180 14% 85%;
-  --warning: 4 66% 63%;
+  --warning: 360 83% 53%;
 
   /* utils */
   --space-xs: 8px;
@@ -286,9 +287,7 @@ p {
 :where(.btn--warning) {
   --backdrop: hsl(var(--warning));
   background-color: hsl(var(--warning));
-  border: 0;
-  /* border: 2px solid hsl(var(--warning)); */
-  /* --color: hsl(var(--warning)); */
+   border: 0;
 }
 
 :where(.btn--warning):is(:hover, :focus-visible) {
