@@ -60,7 +60,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-color: #ffffe0;
   color: hsl(var(--text));
 }
 /* scrollbar */
@@ -395,10 +394,7 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: sticky;
-  top: 0;
   z-index: 1000;
-  background-color: lightyellow;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
