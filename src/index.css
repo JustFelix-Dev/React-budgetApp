@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Mukta', sans-serif;
+  transition: all ease-in 300ms;
 }
 
 img {
@@ -31,7 +32,7 @@ svg {
   --text: 185 26% 9%;
   --muted: 183 8% 55%;
   --light: 180 14% 85%;
-  --warning: 360 83% 53%;
+  /* --warning: 360 83% 53%; */
 
   /* utils */
   --space-xs: 8px;

@@ -1,6 +1,6 @@
 import { Form, NavLink, redirect } from "react-router-dom";
  import {GiExpense} from 'react-icons/gi'
-import TrashIcon from '../assets/trash.svg'
+ import {GrTrash} from 'react-icons/gr';
 import { deleteData } from "../helpers";
 import { toast } from 'react-toastify';
 
@@ -15,7 +15,7 @@ const Nav = ( {userName} ) => {
                   (
                     <Form method="post" action="/logout" onSubmit={(e)=>{if(!confirm('Delete User and all Data ?')) e.preventDefault()}}>
                         <button type="submit" className="btn btn--warning">
-                            <span><img src={TrashIcon} alt="" height={20} /> </span>
+                            <span><GrTrash/> </span>
                         </button>
                     </Form>
                 )
