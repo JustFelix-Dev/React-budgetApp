@@ -78,7 +78,7 @@ const Dashboard = () => {
     return ( 
             <>
              { userName ? <div className="dashboard">
-                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%"}}> <div className="name"><h2 style={{alignSelf:"center"}}>Welcome,</h2><span className="userName">{userName}</span></div> { budgets && <div className="time"><span className="userName">{dayList[day]}</span></div>}</div> 
+                <div className="welcome-holder" style={{display:"flex",justifyContent:"space-between",width:"100%"}}> <div className="name"><h2 style={{alignSelf:"center"}}>Welcome,</h2><span className="userName">{userName}</span></div> { budgets && <div className="time"><span className="username">{dayList[day]}</span></div>}</div> 
                 <div className="grid-sm">
                     {   
                       budgets && budgets.length > 0 ? 

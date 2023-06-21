@@ -179,6 +179,19 @@ body {
   padding-block: .5rem;
   border-radius: 3px;
   font-size: var(--fs-300);
+  user-select: none;
+}
+.username{
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: hsl(var(--accent)/0.9);
+  padding-inline: .3rem;
+  padding-block: .3rem;
+  border-radius: 3px;
+  font-size: var(--fs-300);
 }
 .expenseList{
   background-color: hsl(var(--accent));
@@ -432,6 +445,16 @@ nav a {
 @media screen and (max-width: 525px) {
   nav a span {
     display: none;
+  }
+  .welcome-holder{
+   flex-direction: column;    
+  }
+  .username{
+    align-self: start;
+    align-items: start;
+    align-content: start;
+    width: 5rem;
+    font-size: var(--fs-200);
   }
 }
 
