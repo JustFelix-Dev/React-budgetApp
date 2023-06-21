@@ -69,10 +69,16 @@ export const dashboardLoader=()=>{
 
 const Dashboard = () => {
     const { userName,budgets,expenses} = useLoaderData()
+    const date = new Date()
+    const day = date.getDay()
+    const dayList = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+
+
     return ( 
             <>
              { userName ? <div className="dashboard">
-                <div style={{display:"flex",alignItems:"center"}}><h2>Welcome,</h2><span className="userName">{userName}</span></div> 
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%"}}> <div className="name"><h2 style={{alignSelf:"center"}}>Welcome,</h2><span className="userName">{userName}</span></div> <div className="time"><span className="userName">{dayList[day]}</span></div></div> 
                 <div className="grid-sm">
                     {   
                       budgets && budgets.length > 0 ? 

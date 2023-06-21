@@ -7,7 +7,6 @@ import {
 import  illustration  from '../assets/illustration.svg'
 
 const Intro = () => {
-
     const fetcher = useFetcher()
     const isSubmitting = fetcher.state === 'submitting'
     return (  

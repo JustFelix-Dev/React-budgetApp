@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Mukta', sans-serif;
-  transition: all ease-in 300ms;
 }
 
 img {
@@ -167,6 +166,10 @@ body {
 }
 
     /* quick styling */
+
+.name{
+  display: flex;
+}
 .userName{
   display: flex;
   align-items: center;
@@ -174,7 +177,8 @@ body {
   background-color: hsl(var(--accent));
   padding-inline: .5rem;
   padding-block: .5rem;
-  border-radius: 20px;
+  border-radius: 3px;
+  font-size: var(--fs-300);
 }
 .expenseList{
   background-color: hsl(var(--accent));
@@ -353,6 +357,7 @@ p {
   display: -ms-grid;
   display: grid;
   gap: var(--space-sm);
+
   width: 100%;
 }
 
@@ -535,7 +540,7 @@ select {
   content: "";
   position: absolute;
   inset: 0.55rem;
-  border: 2px solid hsl(var(--text));
+  border: 2px solid hsl(var(--accent));
   border-radius: calc(var(--round-lg) * 0.6);
   z-index: -1;
 }
@@ -575,7 +580,7 @@ select {
   -webkit-box-shadow: 0.25em 0.3em 1em hsl(var(--muted) / 0.2);
   box-shadow: 0.25em 0.3em 1em hsl(var(--muted) / 0.2);
   background-color: var(--bkg);
-  border-radius: var(--round-lg);
+  border-radius: calc(var(--round-sm) + 2px);
   border: 3px solid hsl(var(--backdrop));
   padding: calc(var(--space-md) / 1.5) calc(var(--space-md) / 1.2);
   gap: var(--space-sm);
