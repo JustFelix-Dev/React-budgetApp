@@ -1,6 +1,7 @@
 import React, { useRef,useEffect } from 'react'
 import { useFetcher } from 'react-router-dom'
 import {AiOutlinePlus} from 'react-icons/ai'
+import {motion} from 'framer-motion'
 const AddExpenseForm = ({ budgets }) => {
     const fetcher = useFetcher()
     const isSubmitting = fetcher.state == 'submitting'
@@ -15,7 +16,7 @@ const AddExpenseForm = ({ budgets }) => {
     })
   return (
     <>
-     <div className="form-wrapper">
+     <motion.div initial={{opacity:0,scale:0,x:100}} animate={{opacity:1,scale:1,x:0}} transition={{duration:0.4}} className="form-wrapper">
         <h2 className='h3'>Add New <span className='accent'>{budgets.length === 1 && `${budgets.map((budget)=>budget.name)}`}</span> Expense</h2>
         <fetcher.Form method='post' className='grid-sm' ref={formRef}>
                 <div className="expense-inputs">
@@ -62,7 +63,7 @@ const AddExpenseForm = ({ budgets }) => {
                  </button>
                 </div>
         </fetcher.Form>
-     </div>
+     </motion.div>
     </>
   )
 }

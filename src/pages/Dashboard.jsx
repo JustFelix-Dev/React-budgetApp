@@ -6,6 +6,7 @@ import AddBudgetForm from "../components/AddBudgetForm";
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
 import Table from "../components/Table";
+import {motion} from 'framer-motion';
 
 
 export const formAction = async ({request})=>{
@@ -78,7 +79,7 @@ const Dashboard = () => {
     return ( 
             <>
              { userName ? <div className="dashboard">
-                <div className="welcome-holder" style={{display:"flex",justifyContent:"space-between",width:"100%"}}> <div className="name"><h2 style={{alignSelf:"center"}}>Welcome,</h2><span className="userName">{userName}</span></div> { budgets && <div className="time"><span className="username">{dayList[day]}</span></div>}</div> 
+                <div className="welcome-holder" style={{display:"flex",justifyContent:"space-between",width:"100%"}}> <motion.div initial={{x:400,opacity:0}} animate={{x:0,opacity:1}} transition={{type:'spring',duration:1}} className="name"><h2 style={{alignSelf:"center"}}>Welcome,</h2><span className="userName">{userName}</span></motion.div> { budgets && <motion.div initial={{y:-100,opacity:0}} animate={{y:0,opacity:1}} transition={{type:'spring',duration:0.9,stiffness:110}} className="time"><span className="username">{dayList[day]}</span></motion.div>}</div> 
                 <div className="grid-sm">
                     {   
                       budgets && budgets.length > 0 ? 
@@ -87,14 +88,14 @@ const Dashboard = () => {
                             <AddBudgetForm/>
                             <AddExpenseForm budgets={budgets}/>
                         </div>
-                        <h2>Available Budgets</h2>
-                          <div className="budgets">
+                        <h2>Allocated Budgets</h2>
+                          <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5,staggerChildren:1}}className="budgets">
                             {
                                 budgets.map((budget)=>(
                                    <BudgetItem  key={budget.id} budget={budget}/>
                                 ))
                             }
-                          </div>
+                          </motion.div>
                           {
                              expenses && expenses.length > 0 && (
                                 <div className="grid-md">
@@ -110,11 +111,11 @@ const Dashboard = () => {
                           }
                     </div>
                       : (
-                        <div className="grid-sm">
+                        <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1.6}} className="grid-sm">
                             <p>Manage your finances anywhere, anytime with ease.</p>
                             <p>Create a budget to get started!</p>
                             <AddBudgetForm/>
-                        </div>
+                        </motion.div>
                       )
                     
                 }

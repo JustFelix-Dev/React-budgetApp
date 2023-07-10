@@ -1,7 +1,8 @@
 import React from 'react'
 import { calculateSpent, deleteItem, formatCurrency, formatProgressBar, getMatchingItems } from '../helpers'
 import { Form,Link, redirect } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 // deleteBudgetAction
 export const deleteBudgetAction =({params})=>{
@@ -35,7 +36,7 @@ const BudgetItem = ({budget,showButton=false}) => {
     const spent = calculateSpent(id)
   return (
        <>
-        <div className="budget" style={{"--accent": color}}>
+        <motion.div initial={{opacity:0}} whileInView={{opacity:1}} transition={{delay:0.5,duration:1}} className="budget" style={{"--accent": color}}>
             <div className="progress-text">
                 <h3>{name}</h3>
                 <p>{formatCurrency(amount)} Budgeted</p>
@@ -60,7 +61,7 @@ const BudgetItem = ({budget,showButton=false}) => {
                         </Link>
                     )
                  }
-        </div>
+        </motion.div>
        </>
   )
 }

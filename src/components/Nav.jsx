@@ -3,13 +3,29 @@ import { Form, NavLink, redirect } from "react-router-dom";
  import {GrTrash} from 'react-icons/gr';
 import { deleteData } from "../helpers";
 import { toast } from 'react-toastify';
+import {motion} from 'framer-motion';
 
 const Nav = ( {userName} ) => {
     return ( 
           <>
            <nav>
              <NavLink to={'/'} aria-label="Home">
-                  <div style={{display:"flex",alignItems:"start"}}><GiExpense/> <span> Budgetry</span></div> 
+                  <div style={{display:"flex",alignItems:"start"}}>
+                 <motion.span
+                 initial={{y:-100}}
+                 animate={{y:0}}
+                 transition={{type:'spring',delay:1,duration:1.2,stiffness:180}}
+                  >
+                 <GiExpense/>
+                 </motion.span> 
+
+                <motion.span
+                 initial={{opacity:0,scale:0}}
+                 animate={{opacity:1,scale:1}}
+                 transition={{duration:0.3}}
+                  >
+                 Budgetry
+                 </motion.span></div> 
              </NavLink>
              { userName &&
                   (
@@ -37,7 +53,7 @@ export const logoutAction = ()=>{
          })
 
         //  toast.promise({pending,error,sucess})
-         toast.success('You have deleted this user!')
+         toast.success('User deleted!')
 
      return  redirect('/')
 }

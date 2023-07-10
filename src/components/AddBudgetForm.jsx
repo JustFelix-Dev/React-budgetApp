@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Form, useFetcher } from "react-router-dom";
 import { HiCurrencyDollar } from "react-icons/hi";
+import {motion} from 'framer-motion'
 
 const AddBudgetForm = () => {
     const fetcher = useFetcher()
@@ -28,7 +29,7 @@ const AddBudgetForm = () => {
                     <input type="number" step={0.01} name="newBudgetAmount" id="newBudgetAmount" placeholder="e.g., $550" required inputMode="decimal" />
                 </div>
                 <input type="hidden" name="_action" value={'createBudget'} />
-                 <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
+                 <motion.button initial={{opacity:0,scale:0}} animate={{opacity:1,scale:1}} transition={{duration:0.5}} type="submit" className="btn btn--dark" disabled={isSubmitting}>
                     {
                         isSubmitting ? (
                         <div class="loader">
@@ -46,7 +47,7 @@ const AddBudgetForm = () => {
                         <div class="bar12"></div>
                     </div>): ( <div style={{display:"flex",alignItems:"center"}}><span>Create Budget</span><HiCurrencyDollar/></div>)
                     }
-                 </button>
+                 </motion.button>
             </fetcher.Form>
            </div>
            </>

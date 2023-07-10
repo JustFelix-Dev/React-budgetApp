@@ -1,10 +1,15 @@
 import React from 'react'
 import ExpenseItem from './ExpenseItem'
+import {AnimatePresence, motion} from 'framer-motion';
 
 const Table = ({expenses,showBudget=true}) => {
   return (
        <>
-       <div className="table">
+       <motion.div
+         initial={{y:-20,opacity:0}}
+         animate={{opacity:1,y:0}}
+         transition={{duration:0.3}}
+        className="table">
               <table>
                 <thead>
                     <tr>
@@ -20,14 +25,23 @@ const Table = ({expenses,showBudget=true}) => {
                 <tbody>
                     {
                         expenses.map((expense)=>(
-                            <tr key={expense.id}>
+                            <AnimatePresence>
+                            <motion.tr 
+                            exit={{scaleY:0}}
+                            initial={{opacity:0}}
+                            animate={{opacity:1}}
+                             drag 
+                            dragConstraints={{left:0,right:0,top:0,bottom:0}}
+                            dragElastic={0.8}
+                            key={expense.id}>
                                 <ExpenseItem expense={expense} showBudget={showBudget}/>
-                            </tr>
+                            </motion.tr>
+                            </AnimatePresence>
                         ))
                     }
                 </tbody>
               </table>
-       </div>
+       </motion.div>
        </>
   )
 }
