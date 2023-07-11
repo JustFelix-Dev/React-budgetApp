@@ -4,6 +4,8 @@ import { Form, NavLink, redirect } from "react-router-dom";
 import { deleteData } from "../helpers";
 import { toast } from 'react-toastify';
 import {motion} from 'framer-motion';
+import { useState } from "react";
+
 
 const Nav = ( {userName} ) => {
     return ( 
