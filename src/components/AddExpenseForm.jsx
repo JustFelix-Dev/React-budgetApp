@@ -6,12 +6,10 @@ const AddExpenseForm = ({ budgets }) => {
     const fetcher = useFetcher()
     const isSubmitting = fetcher.state == 'submitting'
     const formRef = useRef()
-    const focusRef  = useRef()
 
     useEffect(()=>{
         if(!isSubmitting){
             formRef.current.reset()
-            focusRef.current.focus()
         }
     })
   return (
@@ -22,7 +20,7 @@ const AddExpenseForm = ({ budgets }) => {
                 <div className="expense-inputs">
                     <div className="grid-xs">
                         <label htmlFor="newExpense">Expense Name</label>
-                        <input type="text" name='newExpense' id='newExpense' placeholder='e.g Internet bills' ref={focusRef} required/>
+                        <input type="text" name='newExpense' id='newExpense' placeholder='e.g Internet bills' required/>
                     </div>
                     <div className="grid-xs">
                         <label htmlFor="newExpenseAmount">Expense Amount</label>
