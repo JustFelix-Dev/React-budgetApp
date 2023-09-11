@@ -2,7 +2,7 @@
 
 Budgetry is a web application built using React, Vite, and Framer Motion that allows you to easily track your finances and manage your budget. With Budgetry, you can keep an eye on your income, expenses, and overall financial health.
 
-![Budgetry Screenshot](screenshot.png)
+![Budgetry Screenshot](https://res.cloudinary.com/dljgkzwfz/image/upload/v1694437857/Github%20ReadMe%20Screenshots/Screenshot_77_jff20f.png)
 
 ## Features
 
@@ -10,9 +10,7 @@ Budgetry is a web application built using React, Vite, and Framer Motion that al
 
 - **Income Management**: Record your income sources to understand your total earnings.
 
-- **Budget Planning**: Set monthly budgets for different expense categories and track your progress.
-
-- **Visual Reports**: Interactive charts and graphs to visualize your financial data.
+- **Budget Planning**: Set  budgets for different expense categories and track your progress.
 
 - **Framer Motion**: Engaging animations and transitions for a delightful user experience.
 
@@ -32,4 +30,8 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/yourusername/budgetry.git
+2. Navigate to the project directory :
+   ```bash
+   cd budgetry
+
 
