@@ -29,9 +29,21 @@ Before you begin, ensure you have the following installed:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/budgetry.git
+    https://github.com/JustFelix-Dev/React-budgetApp.git
+   
 2. Navigate to the project directory :
    ```bash
-   cd budgetry
+   cd React-budgetApp
+   
+3. Install project dependency :
+   ```bash
+   npm install
+
+## Usage
+1. Start the development server :
+   ```bash
+   npm run dev
+
+   
 
 
